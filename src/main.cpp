@@ -363,10 +363,13 @@ int main(int argc, char* argv[]) {
 
   if (DbMain::forceBreezeTheme()) {
     QApplication::setStyle(QStringLiteral("breeze"));
-  }
+	}
+	else {
+		QIcon::setFallbackThemeName(QStringLiteral("breeze"));
+	}
 
-  if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) && QQuickStyle::name().isEmpty()) {
-    QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
+  if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE") && QQuickStyle::name().isEmpty()) { 
+  	QQuickStyle::setStyle(QStringLiteral("org.kde.desktop")); 
   }
 
   QQmlApplicationEngine engine;

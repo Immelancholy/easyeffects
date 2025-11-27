@@ -38,6 +38,7 @@
 #include <QLocalServer>
 #include <QLoggingCategory>
 #include <QProcessEnvironment>
+#include <QQuickStyle>
 #include <QQuickWindow>
 #include <QSystemTrayIcon>
 #include <csignal>
@@ -364,7 +365,7 @@ int main(int argc, char* argv[]) {
     QApplication::setStyle(QStringLiteral("breeze"));
   }
 
-  if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
+  if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) && QQuickStyle::name().isEmpty()) {
     QQuickStyle::setStyle(QStringLiteral("org.kde.desktop"));
   }
 
